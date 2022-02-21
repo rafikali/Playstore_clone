@@ -17,18 +17,19 @@ class Homepage extends StatelessWidget {
 
      body:  SafeArea(
        child: CustomScrollView(
+
          slivers:[
+
+
+
            SliverBar(
            floating: true,
            pinned: true,
-           snap: true,
+           snap: false,
 
            title: 'Search for apps & games',
            flexibleSpace: FlexibleSpaceBar(
              // title: Text('rafik'),
-             background: FlutterLogo(),
-
-
 
            ),
            type: 'normal',
@@ -37,14 +38,7 @@ class Homepage extends StatelessWidget {
            //   Image.network(ImageConstant.imageUrl)
            // ]
          ),
-           const SliverToBoxAdapter(
-             child: SizedBox(
-               height: 50,
-               child: Center(
-                 child: Text('Scroll to see the SliverAppBar in effect.'),
-               ),
-             ),
-           ),
+
 
            SliverList(
                delegate: SliverChildBuilderDelegate (
