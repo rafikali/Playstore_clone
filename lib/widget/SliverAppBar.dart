@@ -24,10 +24,10 @@ class SliverBar extends StatelessWidget {
           flexibleSpace:  flexibleSpace,
 
 
-
           title: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 1),
             child: Card(
+
               elevation: 4,
               shadowColor: Colors.white60,
                 shape: RoundedRectangleBorder(
@@ -50,7 +50,7 @@ class SliverBar extends StatelessWidget {
 
                       Flexible(
                         child: TextFormField(
-
+                          showCursor: true,
                           decoration: const InputDecoration(
                             hintText: "Search for apps & games",
                             border: InputBorder.none,
@@ -73,12 +73,18 @@ class SliverBar extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, MyRoutes.profileRoute);
+                        },
+                       child:  CircleAvatar(
+                          backgroundImage: AssetImage('assets/images/profile.jpg'),
+
+                        ),
 
 
-                      CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/profile.jpg'),
+                      )
 
-                      ),
 
                     ],
                   ),
@@ -99,9 +105,23 @@ class SliverBar extends StatelessWidget {
           backgroundColor: Colors.white,
 
         bottom: const TabBar(
-          labelColor: Colors.black38,
-          indicatorColor: Colors.amberAccent,
+          padding: EdgeInsets.symmetric(horizontal: 26),
+          labelStyle: TextStyle(
+            fontSize: 16,
+          ),
+
+
+          labelColor: Colors.green,
+          indicatorColor: Colors.green,
           isScrollable: true,
+          unselectedLabelColor: Colors.black87,
+          indicatorWeight: 4,
+          indicatorSize: TabBarIndicatorSize.label,
+
+          // indicator: UnderlineTabIndicator(
+          //   borderSide: BorderSide(width: 5),
+          //   insets: EdgeInsets.symmetric(horizontal: 10)
+          // ),
           tabs:  [
             Tab(text: 'For you',),
             Tab(text: 'Top charts',),
@@ -111,6 +131,7 @@ class SliverBar extends StatelessWidget {
             Tab(text: 'Editors choice',),
 
           ],
+
 
 
        ),

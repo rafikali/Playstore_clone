@@ -20,8 +20,6 @@ class Homepage extends StatelessWidget {
 
          slivers:[
 
-
-
            SliverBar(
            floating: true,
            pinned: true,
@@ -29,7 +27,7 @@ class Homepage extends StatelessWidget {
 
            title: 'Search for apps & games',
            flexibleSpace: FlexibleSpaceBar(
-             // title: Text('rafik'),
+             title: Text("rafiik"),
 
            ),
            type: 'normal',
