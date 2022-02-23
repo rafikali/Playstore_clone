@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:playstore_clone/constants/image.dart';
+import 'package:playstore_clone/contents.dart';
 import 'package:playstore_clone/pages/profile.dart';
 import 'package:playstore_clone/pages/search.dart';
 
@@ -77,7 +78,18 @@ class SliverBar extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      getAlertDialogBox(context);
+                      List<Contents> data = const [
+                        Contents(title: 'Manage apps and device', iconname: Icon(CupertinoIcons.book)),
+                        Contents(title: 'Offers and notifications', iconname: Icon(CupertinoIcons.bell)),
+                        Contents(title: 'Payments and subscriptions', iconname: Icon(CupertinoIcons.creditcard)),
+                        Contents(title: 'Play Protect', iconname: Icon(CupertinoIcons.play)),
+                        Contents(title: 'library', iconname: Icon(CupertinoIcons.folder)),
+                        Contents(title: 'Play Protect', iconname: Icon(CupertinoIcons.play)),
+                        Contents(title: 'Settings', iconname: Icon(CupertinoIcons.settings)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+
+                      ];
+                      getAlertDialogBox(context, data);
 
 
                     },
