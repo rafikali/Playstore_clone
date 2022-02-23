@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SearchBar  extends StatelessWidget {
+  static const String routeName = "/search_bar";
   const SearchBar ({Key? key}) : super(key: key);
 
   @override
