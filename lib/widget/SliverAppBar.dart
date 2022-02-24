@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:playstore_clone/constants/image.dart';
 import 'package:playstore_clone/contents.dart';
+import 'package:playstore_clone/pages/mic_dialog.dart';
 import 'package:playstore_clone/pages/profile.dart';
+import 'package:playstore_clone/pages/profile_dialog.dart';
 
 class SliverBar extends StatefulWidget {
   final String title;
@@ -28,9 +30,12 @@ class SliverBar extends StatefulWidget {
 }
 
 class _SliverBarState extends State<SliverBar> {
+  Color searchColor = Color(0xFF000000);
+  TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
    
 
     return DefaultTabController(
@@ -57,12 +62,13 @@ class _SliverBarState extends State<SliverBar> {
                 // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(
-                      icon: const Icon(CupertinoIcons.search,
-                          color: Colors.black),
+                      icon: Icon(CupertinoIcons.search,
+                          color: searchColor),
                       onPressed: () {}),
                   Flexible(
                     child: TextFormField(
                       showCursor: true,
+                      controller: _controller,
                       decoration: const InputDecoration(
                           hintText: "Search for apps & games",
                           border: InputBorder.none,
@@ -79,32 +85,9 @@ class _SliverBarState extends State<SliverBar> {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                       Alert(context: context, param: Container(
-                         height: 200,
-                         child: Column(
-                           children:  [
-                             Text('Google',
-                             style: TextStyle(
-                               fontWeight: FontWeight.w500,
-                               fontSize: 30,
-                               letterSpacing: 2,
-                             ),),
-                             SizedBox(height: 20,),
-                             InkWell(
-                               onTap: () => {},
-                                 child: AnimatedContainer(
-                                   duration: Duration(seconds: 1),
-                                   child: Icon(CupertinoIcons.add,
-                                    size:  80,
-                                   )
-                                 )),
+                        Mic mic = Mic();
+                        mic.getAlertDialogBox(context);
 
-                             SizedBox(height: 40),
-                             Text('Tap Here To Search'),
-
-                           ],
-                         ),
-                       ), barrierDismmissible: true).getAlertDialogBox( );
                       }),
                   const SizedBox(
                     width: 10,
@@ -120,14 +103,24 @@ class _SliverBarState extends State<SliverBar> {
                         Contents(title: 'Play Protect', iconname: Icon(CupertinoIcons.play)),
                         Contents(title: 'Settings', iconname: Icon(CupertinoIcons.settings)),
                         Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
+
+
+
+
+
+
+
 
                       ];
-                      Alert(context: context, data: data, barrierDismmissible: false
-                          ,
+                      ProfileAlert(context: context, data: data).getAlertDialogBox();
 
-                      ).getAlertDialogBox(
-
-                      );
                       // getAlertDialogBox(context, data);
 
 

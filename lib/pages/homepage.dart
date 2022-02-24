@@ -19,7 +19,12 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
+     bool changeButton = true;
+   moveToHome(BuildContext context) {
+     setState(() {
+       changeButton = !changeButton;
+     });
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -45,26 +50,30 @@ class _HomepageState extends State<Homepage> {
           //   height: 2,
           // ),
           SliverToBoxAdapter(
-
               child: Column(
                 children: [
                   const SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-
-                      Expanded(child: Icon(CupertinoIcons.badge_plus_radiowaves_right), flex: 1,),
-                      Expanded(child: Text('Editors Choice games',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black
-                      ),),
-                        flex: 4,),
-                      Expanded(child: Icon(CupertinoIcons.arrow_right),),
-                    ],
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Editorchoice.routeName);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Expanded(child: Icon(CupertinoIcons.text_badge_checkmark), flex: 1,),
+                        SizedBox(width: 10,),
+                        Expanded(child: Text('Editors Choice games',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87
+                        ),),
+                          flex: 4,),
+                        Expanded(child: Icon(CupertinoIcons.arrow_right),),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -77,11 +86,9 @@ class _HomepageState extends State<Homepage> {
 
           SliverList(
               delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
+            (BuildContext context, int index)
+                {
               return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(ImageConstant.imageUrl),
-                ),
                 title: const Text('Hello world'),
 
               );
