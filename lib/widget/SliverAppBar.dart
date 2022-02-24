@@ -4,9 +4,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:playstore_clone/constants/image.dart';
 import 'package:playstore_clone/contents.dart';
 import 'package:playstore_clone/pages/profile.dart';
-import 'package:playstore_clone/pages/search.dart';
 
-class SliverBar extends StatelessWidget {
+class SliverBar extends StatefulWidget {
   final String title;
   final Widget flexibleSpace;
   final bool? floating;
@@ -20,22 +19,31 @@ class SliverBar extends StatelessWidget {
       this.floating,
       this.pinned,
       this.snap,
-      required this.type})
+      required this.type}
+      )
       : super();
 
   @override
+  State<SliverBar> createState() => _SliverBarState();
+}
+
+class _SliverBarState extends State<SliverBar> {
+
+  @override
   Widget build(BuildContext context) {
+   
+
     return DefaultTabController(
       length: 6,
       child: SliverAppBar(
 
         leadingWidth: 0,
         expandedHeight: 120.0,
-        flexibleSpace: flexibleSpace,
+        flexibleSpace: widget.flexibleSpace,
         title: Padding(
           padding: const EdgeInsets.symmetric(vertical: 2),
           child: Card(
-            margin: EdgeInsets.symmetric(horizontal: 4),
+            margin: const EdgeInsets.symmetric(horizontal: 4),
             elevation: 4,
             shadowColor: Colors.white60,
             shape: RoundedRectangleBorder(
@@ -71,7 +79,32 @@ class SliverBar extends StatelessWidget {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, SearchBar.routeName);
+                       Alert(context: context, param: Container(
+                         height: 200,
+                         child: Column(
+                           children:  [
+                             Text('Google',
+                             style: TextStyle(
+                               fontWeight: FontWeight.w500,
+                               fontSize: 30,
+                               letterSpacing: 2,
+                             ),),
+                             SizedBox(height: 20,),
+                             InkWell(
+                               onTap: () => {},
+                                 child: AnimatedContainer(
+                                   duration: Duration(seconds: 1),
+                                   child: Icon(CupertinoIcons.add,
+                                    size:  80,
+                                   )
+                                 )),
+
+                             SizedBox(height: 40),
+                             Text('Tap Here To Search'),
+
+                           ],
+                         ),
+                       ), barrierDismmissible: true).getAlertDialogBox( );
                       }),
                   const SizedBox(
                     width: 10,
@@ -89,7 +122,13 @@ class SliverBar extends StatelessWidget {
                         Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
 
                       ];
-                      getAlertDialogBox(context, data);
+                      Alert(context: context, data: data, barrierDismmissible: false
+                          ,
+
+                      ).getAlertDialogBox(
+
+                      );
+                      // getAlertDialogBox(context, data);
 
 
                     },
@@ -98,7 +137,7 @@ class SliverBar extends StatelessWidget {
                       minRadius: 15,
                       backgroundImage: AssetImage(ImageConstant.profileImage),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -110,9 +149,9 @@ class SliverBar extends StatelessWidget {
         //
         // ],
 
-        floating: floating!,
-        pinned: pinned!,
-        snap: snap!,
+        floating: widget.floating!,
+        pinned: widget.pinned!,
+        snap: widget.snap!,
         backgroundColor: Colors.white,
 
         bottom:  TabBar(
