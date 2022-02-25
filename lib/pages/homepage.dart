@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:playstore_clone/constants/image.dart';
 import 'package:playstore_clone/pages/editor_choice.dart';
+import 'package:playstore_clone/pages/editor_list.dart';
 import 'package:playstore_clone/pages/profile.dart';
 import 'package:playstore_clone/widget/Appbar.dart';
 import 'package:playstore_clone/widget/SliverAppBar.dart';
@@ -10,7 +11,6 @@ import 'package:playstore_clone/widget/SliverAppBar.dart';
 class Homepage extends StatefulWidget {
   static const String routeName = "/home_page";
   final bool? changeButton;
-
   const Homepage({this.changeButton,}) : super();
 
 
@@ -66,8 +66,8 @@ class _HomepageState extends State<Homepage> {
                         SizedBox(width: 10,),
                         Expanded(child: Text('Editors Choice games',
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
                           color: Colors.black87
                         ),),
                           flex: 4,),
@@ -88,15 +88,71 @@ class _HomepageState extends State<Homepage> {
               delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index)
                 {
-              return ListTile(
-                title: const Text('Hello world'),
-
-              );
+              return EditorList();
             },
-            childCount: 100,
-          )),
-        ]),
+                childCount: 1
 
+          )),
+
+           SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: const [
+                Text('Ads'),
+                SizedBox(width: 10,),
+                Text('Suggested for you',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17,
+                ),),
+                ],
+
+              ),
+            ),
+          ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index)
+                  {
+                    return EditorList();
+                  },
+                  childCount: 10
+
+              )),
+
+
+
+        ]),
+    bottomNavigationBar: SizedBox(
+      height: 65,
+      child: BottomNavigationBar(
+        iconSize: 20,
+        items:  const <BottomNavigationBarItem>[
+
+
+          BottomNavigationBarItem(
+
+              icon: Icon(CupertinoIcons.game_controller_solid,
+              size: 25,),
+            label: "games",
+            backgroundColor: Colors.green,
+          ),
+
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.game_controller_solid,
+                  size: 25),
+            label: "games"),
+
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.chevron_down_circle,
+                  size: 25),
+
+            label: "games"),
+
+        ],
+      ),
+    ),
     );
   }
 }

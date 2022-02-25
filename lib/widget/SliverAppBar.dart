@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:playstore_clone/constants/image.dart';
 import 'package:playstore_clone/contents.dart';
-import 'package:playstore_clone/pages/mic_dialog.dart';
+import 'package:playstore_clone/dialogs/mic_dialog.dart';
+import 'package:playstore_clone/dialogs/search_dialog.dart';
 import 'package:playstore_clone/pages/profile.dart';
-import 'package:playstore_clone/pages/profile_dialog.dart';
+import 'package:playstore_clone/dialogs/profile_dialog.dart';
 
 class SliverBar extends StatefulWidget {
   final String title;
@@ -68,7 +69,10 @@ class _SliverBarState extends State<SliverBar> {
                   Flexible(
                     child: TextFormField(
                       showCursor: true,
-                      controller: _controller,
+                      
+                      onTap: () {
+                        Search(context: context).getAlertDialogBox();
+                      },
                       decoration: const InputDecoration(
                           hintText: "Search for apps & games",
                           border: InputBorder.none,
@@ -103,20 +107,6 @@ class _SliverBarState extends State<SliverBar> {
                         Contents(title: 'Play Protect', iconname: Icon(CupertinoIcons.play)),
                         Contents(title: 'Settings', iconname: Icon(CupertinoIcons.settings)),
                         Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-                        Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-
-
-
-
-
-
-
 
                       ];
                       ProfileAlert(context: context, data: data).getAlertDialogBox();
@@ -189,7 +179,7 @@ class _SliverBarState extends State<SliverBar> {
         ),
         shape: UnderlineInputBorder(
           borderSide: BorderSide(color: HexColor("#D3D3D3"),
-          style: BorderStyle.solid
+          style: BorderStyle.solid,
           )
         ),
 
