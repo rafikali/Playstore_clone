@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -15,11 +18,15 @@ class SliverBar extends StatefulWidget {
   final bool? pinned;
   final bool? snap;
   final String type;
+  TextEditingController? searchColor;
+  final bool? changeColor;
 
   SliverBar(
       {required this.title,
+        this.changeColor,
       required this.flexibleSpace,
       this.floating,
+        this.searchColor,
       this.pinned,
       this.snap,
       required this.type}
@@ -30,24 +37,33 @@ class SliverBar extends StatefulWidget {
   State<SliverBar> createState() => _SliverBarState();
 }
 
+
+
 class _SliverBarState extends State<SliverBar> {
-  Color searchColor = Color(0xFF000000);
-  TextEditingController _controller = TextEditingController();
+  Color searchColor = Colors.blue;
+  bool changeColor = true;
+
+
+
+
+  void colorchange() {
+    setState(() {
+      changeColor = !changeColor;
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
 
-   
-
     return DefaultTabController(
       length: 6,
       child: SliverAppBar(
-
         leadingWidth: 0,
         expandedHeight: 120.0,
         flexibleSpace: widget.flexibleSpace,
         title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 2),
+          padding:  EdgeInsets.zero,
           child: Card(
             margin: const EdgeInsets.symmetric(horizontal: 4),
             elevation: 4,
@@ -64,7 +80,7 @@ class _SliverBarState extends State<SliverBar> {
                 children: [
                   IconButton(
                       icon: Icon(CupertinoIcons.search,
-                          color: searchColor),
+                      color: Colors.black,),
                       onPressed: () {}),
                   Flexible(
                     child: TextFormField(
@@ -89,9 +105,7 @@ class _SliverBarState extends State<SliverBar> {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                        Mic mic = Mic();
-                        mic.getAlertDialogBox(context);
-
+                        Mic(context: context).getAlertDialogBox();
                       }),
                   const SizedBox(
                     width: 10,
@@ -107,7 +121,6 @@ class _SliverBarState extends State<SliverBar> {
                         Contents(title: 'Play Protect', iconname: Icon(CupertinoIcons.play)),
                         Contents(title: 'Settings', iconname: Icon(CupertinoIcons.settings)),
                         Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
-
                       ];
                       ProfileAlert(context: context, data: data).getAlertDialogBox();
 
@@ -138,15 +151,17 @@ class _SliverBarState extends State<SliverBar> {
         backgroundColor: Colors.white,
 
         bottom:  TabBar(
-
-
           padding: const EdgeInsets.symmetric(horizontal: 26),
           labelStyle: const TextStyle(
             fontSize: 16,
           ),
 
-          labelColor: HexColor("#006400"),
-          indicatorColor: HexColor("#006400"),
+          labelColor: HexColor("#006400",
+          ),
+
+            indicatorColor: HexColor("#006400",),
+
+
           isScrollable: true,
           unselectedLabelColor: Colors.black87,
           indicatorWeight: 4,

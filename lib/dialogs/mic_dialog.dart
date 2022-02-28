@@ -3,7 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Mic {
-  getAlertDialogBox(BuildContext context) {
+   BuildContext context;
+   Mic({required this.context});
+
+  getAlertDialogBox() {
     showDialog(context: context,
         barrierDismissible: true,
         builder: (context) {
@@ -33,7 +36,6 @@ class Mic {
                     duration: const Duration(seconds: 2),
                     child: Icon(CupertinoIcons.mic_circle_fill,
                       size:isIconChanged? 80:40,),
-
 
                   ),
                 ),

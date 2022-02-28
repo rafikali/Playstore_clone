@@ -28,7 +28,7 @@ class _PlayAppbarState extends State<PlayAppbar> {
 
                child: CustomScrollView(
                   slivers: [
-                    SliverAppBar(
+                    const SliverAppBar(
                       expandedHeight: 200,
                         pinned: true,
                         snap: false,
@@ -36,7 +36,7 @@ class _PlayAppbarState extends State<PlayAppbar> {
 
 
 
-                        flexibleSpace: const FlexibleSpaceBar(
+                        flexibleSpace: FlexibleSpaceBar(
 
                           background: FlutterLogo(),
                           title: Text('hello',

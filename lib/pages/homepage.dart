@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:playstore_clone/constants/image.dart';
 import 'package:playstore_clone/pages/editor_choice.dart';
 import 'package:playstore_clone/pages/editor_list.dart';
-import 'package:playstore_clone/pages/profile.dart';
-import 'package:playstore_clone/widget/Appbar.dart';
 import 'package:playstore_clone/widget/SliverAppBar.dart';
 
 class Homepage extends StatefulWidget {
   static const String routeName = "/home_page";
   final bool? changeButton;
-  const Homepage({this.changeButton,}) : super();
+  TextEditingController? searchColor;
+
+
+   Homepage({this.changeButton, this.searchColor}) : super();
 
 
   @override
@@ -19,13 +20,19 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  Color searchColor = Colors.blue;
      bool changeButton = true;
+     int selectedIndex = 0;
    moveToHome(BuildContext context) {
      setState(() {
        changeButton = !changeButton;
      });
    }
-
+    void onTapped(int index) {
+     setState(() {
+       selectedIndex = index;
+     });
+    }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +103,7 @@ class _HomepageState extends State<Homepage> {
 
            SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 children: const [
                 Text('Ads'),
@@ -104,7 +111,7 @@ class _HomepageState extends State<Homepage> {
                 Text('Suggested for you',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 17,
+                  fontSize: 18,
                 ),),
                 ],
 
@@ -115,9 +122,10 @@ class _HomepageState extends State<Homepage> {
               delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index)
                   {
+
                     return EditorList();
                   },
-                  childCount: 10
+                  childCount: 20
 
               )),
 
@@ -125,32 +133,39 @@ class _HomepageState extends State<Homepage> {
 
         ]),
     bottomNavigationBar: SizedBox(
-      height: 65,
+      height: 70,
       child: BottomNavigationBar(
-        iconSize: 20,
+        selectedFontSize: 16,
+        unselectedFontSize: 15,
+        selectedIconTheme: IconThemeData(color: Colors.green),
+        unselectedIconTheme: IconThemeData(color: Colors.black),
+        unselectedItemColor: Colors.black,
+        iconSize: 30,
+
         items:  const <BottomNavigationBarItem>[
 
-
           BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.game_controller_solid),
+            label: "Games",
 
-              icon: Icon(CupertinoIcons.game_controller_solid,
-              size: 25,),
-            label: "games",
-            backgroundColor: Colors.green,
           ),
 
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.game_controller_solid,
-                  size: 25),
-            label: "games"),
 
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.chevron_down_circle,
-                  size: 25),
+              icon: FaIcon(FontAwesomeIcons.appStore),
+            label: "Apps"),
 
-            label: "games"),
+          BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.film,),
+              label: "Movies",
+          ),
+
+
 
         ],
+        currentIndex: selectedIndex,
+        selectedItemColor: Colors.green,
+        onTap: onTapped,
       ),
     ),
     );

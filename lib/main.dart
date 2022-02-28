@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       initialRoute: Homepage.routeName,
       theme: ThemeData(textTheme: GoogleFonts.robotoTextTheme()),
 
-      onGenerateRoute: RouteGenerator.generateRoute
+      onGenerateRoute: RouteGenerator.generateRoute,
+
     );
   }
 }

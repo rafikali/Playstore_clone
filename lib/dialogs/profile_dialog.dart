@@ -5,7 +5,6 @@ import 'package:playstore_clone/constants/image.dart';
 import 'package:playstore_clone/pages/profile.dart';
 
 import '../contents.dart';
-
 class ProfileAlert {
   final List<Contents>? data;
   BuildContext context;
@@ -35,7 +34,7 @@ class ProfileAlert {
               iconSize: 20,
               ),
               const SizedBox(
-                width: 70,
+                width: 80,
               ),
               Image.network(ImageConstant.googleImage,
               width: 70,
@@ -44,12 +43,11 @@ class ProfileAlert {
           ),
         ),
         content: Container(
-          height: 1500,
-              width: 800,
+              width: 900,
+              height: 600,
               child: Padding(
                 padding: EdgeInsets.zero,
                 child: Column(
-
                   children: [
                      const ListTile(
                        leading: CircleAvatar(
@@ -76,8 +74,9 @@ class ProfileAlert {
                        ),
                      style: ButtonStyle(
                        backgroundColor: MaterialStateProperty.all<Color>(
-                         Colors.white
+                         Colors.white,
                      ),
+                       elevation: MaterialStateProperty.all<double>(0),
                        shape: MaterialStateProperty.all<RoundedRectangleBorder>( RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(20),),
                      ),
