@@ -175,6 +175,7 @@ class _SliverBarState extends State<SliverBar> {
             Tab(
               text: 'For you',
             ),
+
             Tab(
               text: 'Top charts',
             ),
@@ -197,7 +198,6 @@ class _SliverBarState extends State<SliverBar> {
           style: BorderStyle.solid,
           )
         ),
-
       ),
 
     );

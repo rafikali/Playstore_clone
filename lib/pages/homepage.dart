@@ -122,7 +122,6 @@ class _HomepageState extends State<Homepage> {
               delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index)
                   {
-
                     return EditorList();
                   },
                   childCount: 20

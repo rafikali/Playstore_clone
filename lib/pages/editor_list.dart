@@ -13,6 +13,7 @@ class EditorList extends StatelessWidget {
       padding: EdgeInsets.all(5),
         height: 260,
         child: ListView.builder(
+          physics: BouncingScrollPhysics(),
           itemCount: 10,
           scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
@@ -40,6 +41,7 @@ class EditorList extends StatelessWidget {
                     title: Container(
                       height: 60,
                       child: ListView(
+                        physics: NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.zero,
                         children: [
                           Text('Garena FreeFire', style: TextStyle(fontSize: 18, letterSpacing: 0.2),),
