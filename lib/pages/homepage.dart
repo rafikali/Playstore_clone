@@ -7,6 +7,8 @@ import 'package:playstore_clone/pages/editor_choice.dart';
 import 'package:playstore_clone/pages/editor_list.dart';
 import 'package:playstore_clone/widget/CustomAppbar.dart';
 import 'package:playstore_clone/widget/SliverAppBar.dart';
+import 'package:playstore_clone/widget/blank_page.dart';
+import 'package:playstore_clone/widget/custom_scroll_view.dart';
 
 class Homepage extends StatefulWidget {
   static const String routeName = "/home_page";
@@ -53,148 +55,106 @@ class _HomepageState extends State<Homepage> {
               ),
               ),
 
-               SliverFillRemaining(
-                 hasScrollBody: true,
+
+            SliverFillRemaining(
                  child: TabBarView(
               children: [
-                 CustomScrollView(
-                   physics: NeverScrollableScrollPhysics(),
-                    slivers: [
-                      SliverList(delegate: SliverChildListDelegate([
-                        Expanded(
-                        child: Column(
-                          children: [
-                            EditorList(),
-                            EditorList(),
-                            EditorList(),
-                            EditorList(),
-                            EditorList(),
-                          ],
-                        ),
-                        ),
+                 Customscroll(
+                     editorchoice: Editorchoice(
+                         route: blank.routeName,
+                         leadingicon: FontAwesomeIcons.clipboardList,
+                         title: 'Editors Choice games',
+                         trailingicon: CupertinoIcons.arrow_right),
+                     editorlistdynamic: const Editorlistdynamic(
+                         mainImage: ImageConstant.COD,
+                         logoImage: ImageConstant.COD_logo,
+                         title: 'Call Of Duty',
+                         category1: 'Action',
+                         category2: 'BattleGround',
+                         rating: '4.4',
+                         size: '1.5GB')),
 
+                       Customscroll(
+                           editorchoice: Editorchoice(
+                               route: blank.routeName,
+                               leadingicon: FontAwesomeIcons.clipboardList,
+                               title: 'Editors Choice chart',
+                               trailingicon: CupertinoIcons.arrow_right),
+                           editorlistdynamic: const Editorlistdynamic(
+                               mainImage: ImageConstant.pubg,
+                               logoImage: ImageConstant.pubg_logo,
+                               title: 'PUBG MOBILE',
+                               category1: 'Action',
+                               category2: 'Shooter',
+                               rating: '4.2',
+                               size: '740MB')
 
-
-
-                      ]
-                      ),
-                      ),
-      ]
-    ),
-
-                       CustomScrollView(
-                         physics: NeverScrollableScrollPhysics(),
-                       slivers: [
-
-                      SliverList(delegate: SliverChildListDelegate([
-                        Expanded(
-                          child: Container(
-                            height: MediaQuery.of(context).size.height,
-                            color: Colors.blue,
-                              child: const Center(
-                                 child:  Text('for you tab'),
-                      ),
-
-
-                      ),
-                        ),
-
-
-                       ])),
-                  ]
-
-                  ),
-                CustomScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    slivers: [
-                      SliverList(delegate: SliverChildListDelegate([
-                        Expanded(
-                          child: Container (
-                              height: MediaQuery.of(context).size.height,
-                              child: Center(
-                                child: Text(
-                                  'home Tab',
-
-                                ),
-                              )
-                          ),
-                        ),
-
-
-
-                      ]
-                      ),
-                      ),
-                    ]
                 ),
-                CustomScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    slivers: [
-                      SliverList(delegate: SliverChildListDelegate([
-                        Expanded(
-                          child: Container (
-                              height: MediaQuery.of(context).size.height,
-                              child: Center(
-                                child: Text(
-                                  'home Tab',
+                Customscroll(
+                    editorchoice: Editorchoice(
+                        route: blank.routeName,
+                        leadingicon: FontAwesomeIcons.clipboardList,
+                        title: 'Editors Choice chart',
+                        trailingicon: CupertinoIcons.arrow_right),
+                    editorlistdynamic: const Editorlistdynamic(
+                        mainImage: ImageConstant.fortnight,
+                        logoImage: ImageConstant.fortnight_logo,
+                        title: 'FORTNITE',
+                        category1: 'Action',
+                        category2: 'Shooter',
+                        rating: '4.5',
+                        size: '1GB')
 
-                                ),
-                              )
-                          ),
-                        ),
-
-
-
-                      ]
-                      ),
-                      ),
-                    ]
                 ),
-                CustomScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    slivers: [
-                      SliverList(delegate: SliverChildListDelegate([
-                        Expanded(
-                          child: Container (
-                              height: MediaQuery.of(context).size.height,
-                              child: Center(
-                                child: Text(
-                                  'home Tab',
+                Customscroll(
+                    editorchoice: Editorchoice(
+                        route: blank.routeName,
+                        leadingicon: FontAwesomeIcons.clipboardList,
+                        title: 'Editors Choice chart',
+                        trailingicon: CupertinoIcons.arrow_right),
+                    editorlistdynamic:  const Editorlistdynamic(
+                        mainImage: ImageConstant.spiderman,
+                        height: 250.0,
+                        width: 250.0,
+                        logoImage: ImageConstant.spiderman_logo,
+                        title: 'Miles morales',
+                        category1: 'Action',
+                        category2: 'Adventure',
+                        rating: '4.5',
+                        size: '1GB')
 
-                                ),
-                              )
-                          ),
-                        ),
-
-
-
-                      ]
-                      ),
-                      ),
-                    ]
                 ),
-                CustomScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    slivers: [
-                      SliverList(delegate: SliverChildListDelegate([
-                        Expanded(
-                          child: Container (
-                              height: MediaQuery.of(context).size.height,
-                              child: Center(
-                                child: Text(
-                                  'home Tab',
+                Customscroll(
+                    editorchoice: Editorchoice(
+                        route: blank.routeName,
+                        leadingicon: FontAwesomeIcons.clipboardList,
+                        title: 'Editors Choice chart',
+                        trailingicon: CupertinoIcons.arrow_right),
+                    editorlistdynamic: const Editorlistdynamic(
+                        mainImage: ImageConstant.Coc,
+                        logoImage: ImageConstant.Coc_logo,
+                        title: 'Clash of Clan',
+                        category1: 'Strategic',
+                        category2: 'war',
+                        rating: '4.5',
+                        size: '188MB')
 
-                                ),
-                              )
-                          ),
-                        ),
+                ),
+                Customscroll(
+                    editorchoice: Editorchoice(
+                        route: blank.routeName,
+                        leadingicon: FontAwesomeIcons.clipboardList,
+                        title: 'Editors Choice chart',
+                        trailingicon: CupertinoIcons.arrow_right),
+                    editorlistdynamic: const Editorlistdynamic(
+                        mainImage: ImageConstant.Gta,
+                        logoImage: ImageConstant.Gta_logo,
+                        title: 'GTA-5',
+                        category1: 'Action',
+                        category2: 'Mission',
+                        rating: '4',
+                        size: '3GB')
 
-
-
-                      ]
-                      ),
-                      ),
-                    ]
                 ),
 
 
@@ -208,26 +168,7 @@ class _HomepageState extends State<Homepage> {
                   //         const SizedBox(
                   //           height: 10,
                   //         ),
-                  //         InkWell(
-                  //           onTap: () {
-                  //             Navigator.pushNamed(context, Editorchoice.routeName);
-                  //           },
-                  //           child: Row(
-                  //             mainAxisAlignment: MainAxisAlignment.center,
-                  //             children: const [
-                  //               Expanded(child: Icon(CupertinoIcons.text_badge_checkmark), flex: 1,),
-                  //               SizedBox(width: 10,),
-                  //               Expanded(child: Text('Editors Choice games',
-                  //               style: TextStyle(
-                  //                 fontSize: 18,
-                  //                 fontWeight: FontWeight.w500,
-                  //                 color: Colors.black87
-                  //               ),),
-                  //                 flex: 4,),
-                  //               Expanded(child: Icon(CupertinoIcons.arrow_right),),
-                  //             ],
-                  //           ),
-                  //         ),
+
                   //       ],
                   //     ),
                   //

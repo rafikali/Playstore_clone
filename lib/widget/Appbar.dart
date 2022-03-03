@@ -34,8 +34,6 @@ class _PlayAppbarState extends State<PlayAppbar> {
                         snap: false,
                         floating: false,
 
-
-
                         flexibleSpace: FlexibleSpaceBar(
 
                           background: FlutterLogo(),

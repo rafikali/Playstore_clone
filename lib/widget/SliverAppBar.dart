@@ -12,7 +12,7 @@ import 'package:playstore_clone/pages/profile.dart';
 import 'package:playstore_clone/dialogs/profile_dialog.dart';
 import 'package:playstore_clone/widget/CustomAppbar.dart';
 
-class SliverBar extends StatefulWidget {
+class SliverBar extends StatefulWidget with PreferredSizeWidget {
   final String? title;
   final Widget? flexibleSpace;
   final bool? floating;
@@ -36,6 +36,10 @@ class SliverBar extends StatefulWidget {
 
   @override
   State<SliverBar> createState() => _SliverBarState();
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => throw UnimplementedError();
 }
 
 
@@ -77,7 +81,7 @@ class _SliverBarState extends State<SliverBar> {
               // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                    icon: Icon(CupertinoIcons.search,
+                    icon: const Icon(CupertinoIcons.search,
                     color: Colors.black,),
                     onPressed: () {}),
                 Flexible(
