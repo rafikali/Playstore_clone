@@ -84,7 +84,7 @@ class _EditorlistdynamicState extends State<Editorlistdynamic> {
                               SizedBox(height: 2,),
                               Row(children: [Text(widget.category1, style: TextStyle(fontSize: 14),),SizedBox(width: 6,), ClipRRect(borderRadius: BorderRadius.circular(10),child: Container(height: 4,width: 4, color: Colors.black,)),SizedBox(width: 6,), Text(widget.category2,style: TextStyle(fontSize: 14),)],),
                               SizedBox(height: 2,),
-                              Row(children: [Text(widget.rating,style: TextStyle(fontSize: 15),), Icon(CupertinoIcons.star_fill, size: 10,), SizedBox(width: 10,),Text(widget.size)],),
+                              Row(children: [Text(widget.rating,style: TextStyle(fontSize: 13),),SizedBox(width: 2,), Icon(CupertinoIcons.star_fill, size: 8,), SizedBox(width: 10,),Text(widget.size, style: TextStyle(fontSize: 13))],),
 
                             ],
                           ),

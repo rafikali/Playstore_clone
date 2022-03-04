@@ -17,37 +17,39 @@ class Customscroll extends StatefulWidget {
 class _CustomscrollState extends State<Customscroll> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
-        slivers: [
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
+    return NotificationListener(
+      child: CustomScrollView(
+        
+          slivers: [
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
 
-                  (BuildContext context, int index) {
+                    (BuildContext context, int index) {
 
-                return Container(
-                  height: 270,
-                  child: SingleChildScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    child: Column(
-                      children:  [
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        widget.editorchoice,
-                        widget.editorlistdynamic,
-                      ],
+                  return Container(
+                    height: 270,
+                    child: SingleChildScrollView(
+                      physics: NeverScrollableScrollPhysics(),
+                      child: Column(
+                        children:  [
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          widget.editorchoice,
+                          widget.editorlistdynamic,
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-              childCount: 10,
+                  );
+                },
+                childCount: 10,
+              ),
             ),
-          ),
 
 
 
-        ]
+          ]
+      ),
     );
   }
 }

@@ -26,8 +26,6 @@ class CustomTabbar extends StatelessWidget with PreferredSizeWidget {
             ),
 
             indicatorColor: HexColor("#006400",),
-
-
             isScrollable: true,
             unselectedLabelColor: Colors.black87,
             indicatorWeight: 4,
