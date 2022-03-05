@@ -52,11 +52,11 @@ class _EditorlistdynamicState extends State<Editorlistdynamic> {
                     children: [
                       Flexible(
                         child: ClipRRect(
-                          child: FadeInImage.memoryNetwork(
+                          child: FadeInImage.assetNetwork(
                             image: widget.mainImage,
                             height: widget.height,
                             width: widget.width,
-                            placeholder: kTransparentImage,
+                            placeholder: ImageConstant.placeholder_image,
                             fit: BoxFit.fill,
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -66,9 +66,9 @@ class _EditorlistdynamicState extends State<Editorlistdynamic> {
                         contentPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 15),
                         leading: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: FadeInImage.memoryNetwork(
+                          child: FadeInImage.assetNetwork(
                               image: widget.logoImage,
-                              placeholder: kTransparentImage,
+                              placeholder: ImageConstant.placeholder_image,
                               fit: BoxFit.cover,
                               width: 60,
                               height: 80),

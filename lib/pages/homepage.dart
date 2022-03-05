@@ -14,7 +14,6 @@ class Homepage extends StatefulWidget {
   static const String routeName = "/home_page";
   final bool? changeButton;
 
-
   TextEditingController? searchColor;
 
   ScrollController? scrollController;

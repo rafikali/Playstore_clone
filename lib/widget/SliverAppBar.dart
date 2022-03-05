@@ -153,7 +153,6 @@ class _SliverBarState extends State<SliverBar> {
       pinned: widget.pinned!,
       snap: widget.snap!,
       backgroundColor: Colors.white,
-
       bottom:  TabBar(
         padding: const EdgeInsets.symmetric(horizontal: 26),
         labelStyle: const TextStyle(
