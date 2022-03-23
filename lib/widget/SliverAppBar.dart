@@ -163,8 +163,6 @@ class _SliverBarState extends State<SliverBar> {
         ),
 
           indicatorColor: HexColor("#006400",),
-
-
         isScrollable: true,
         unselectedLabelColor: Colors.black87,
         indicatorWeight: 4,
