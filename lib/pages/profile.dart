@@ -13,7 +13,5 @@ class Alert {
 
 
 
-
-
      }
 }

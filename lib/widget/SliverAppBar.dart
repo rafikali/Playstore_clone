@@ -87,7 +87,6 @@ class _SliverBarState extends State<SliverBar> {
                 Flexible(
                   child: TextFormField(
                     showCursor: true,
-
                     onTap: () {
                       Search(context: context).getAlertDialogBox();
                     },
@@ -116,7 +115,7 @@ class _SliverBarState extends State<SliverBar> {
                 ),
                 InkWell(
                   onTap: () {
-                    List<Contents> data = const [
+                     List<Contents> data = const [
                       Contents(title: 'Manage apps and device', iconname: Icon(CupertinoIcons.book)),
                       Contents(title: 'Offers and notifications', iconname: Icon(CupertinoIcons.bell)),
                       Contents(title: 'Payments and subscriptions', iconname: Icon(CupertinoIcons.creditcard)),
@@ -126,6 +125,7 @@ class _SliverBarState extends State<SliverBar> {
                       Contents(title: 'Settings', iconname: Icon(CupertinoIcons.settings)),
                       Contents(title: 'Help & feedback', iconname: Icon(CupertinoIcons.question_circle)),
                     ];
+
                     ProfileAlert(context: context, data: data).getAlertDialogBox();
 
                     // getAlertDialogBox(context, data);

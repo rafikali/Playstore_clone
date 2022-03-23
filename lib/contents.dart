@@ -7,7 +7,6 @@ class Contents {
 
   const Contents({required this.title, required this.iconname});
 
-
 }
 
 
